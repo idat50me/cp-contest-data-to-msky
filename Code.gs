@@ -10,6 +10,12 @@ function fetch_clist_contests_data() {
   let result_json = UrlFetchApp.fetch(req_url).getContentText();
   let result = JSON.parse(result_json);
 
+  // UTCであることを明示
+  for(let i = 0, len = result.objects.length; i < len; i++) {
+    result.objects[i].start += "Z";
+    result.objects[i].end += "Z";
+  }
+
   return result.objects;
 }
 
