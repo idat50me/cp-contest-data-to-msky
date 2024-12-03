@@ -135,7 +135,16 @@ function update_misskey_page_context(contests) {
     payload: JSON.stringify(payload)
   };
 
-  UrlFetchApp.fetch(req_url, options);
+  let response = UrlFetchApp.fetch(req_url, options);
+  let response_code = response.getResponseCode();
+  let response_body = response.getContentText();
+
+  if (response_code === 204) {
+    console.info("Request success (misskey)");
+  }
+  else {
+    console.error(`Request failed (misskey) ${response_code}: ${response_body}`);
+  }
 }
 
 function main() {
