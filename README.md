@@ -1,1 +1,1 @@
-# clist-data-to-msky
+# cp-contest-data-to-msky
