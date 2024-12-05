@@ -120,7 +120,7 @@ function get_contests_data() {
 function update_misskey_page_context(contests) {
   const prop = PropertiesService.getScriptProperties().getProperties();
   const now_d = new Date().toISOString();
-  let data_json = JSON.stringify({updated: now_d, data: contests});
+  let data_json = JSON.stringify({updated: now_d, latest_widget_version: prop.widget_version, data: contests});
   const req_url = "https://misskey.kyoupro.com/api/pages/update"
   const payload = {
     pageId: prop.misskey_page_id,
