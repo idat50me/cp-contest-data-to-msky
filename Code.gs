@@ -124,6 +124,7 @@ function update_misskey_page_context(contests) {
   const req_url = "https://misskey.kyoupro.com/api/pages/update"
   const payload = {
     pageId: prop.misskey_page_id,
+    name: "cp-contest-data", // misskey側のバグ？の暫定対応
     content: [{
       type: "text",
       text: data_json
